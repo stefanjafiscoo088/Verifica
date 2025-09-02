@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea, button {
+            width: 100%;
+            margin-top: 5px;
+            padding: 8px;
+        }
+        button {
+            margin-top: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Verifica</h1>
+<p>Compila il questionario:</p>
+
+<form id="quizForm">
+    <label>Domanda 1: Qual è il tuo nome?</label>
+    <input type="text" name="nome" required>
+
+    <label>Domanda 2: Qual è la tua età?</label>
+    <input type="number" name="eta" required>
+
+    <label>Domanda 3: Scrivi un commento:</label>
+    <textarea name="commento" rows="3"></textarea>
+
+    <button type="submit">Invia</button>
+</form>
+
+<script>
+document.getElementById('quizForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const dati = Object.fromEntries(new FormData(e.target).entries());
+    console.log('Risposte inviate:', dati);
+
+    // Mostra un messaggio di conferma
+    alert('Grazie! Le risposte sono state inviate.');
+
+    // Qui normalmente invieresti i dati a un server/database
+    e.target.reset();
+});
+</script>
+
+</body>
+</html>
